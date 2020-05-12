@@ -40,10 +40,10 @@ void NESCore_Callback_OutputFrame(word *WorkFrame) {
 			// Doubling both axes. 4 pixels of 640x480 for every 1 pixel of 256x240
 			// Converting 2D image into 1D array, so adding 640 pixels for every row and adding 64 to center the image
 
-			ptr[640 * (2*i)  + (2*j)+64]=tpixel;
-			ptr[640 * (2*i)  + (2*j+1)+64]=tpixel;
-			ptr[640 * (2*i+1) + (2*j)+64]=tpixel;
-			ptr[640 * (2*i+1) + (2*j+1)+64]=tpixel;
+			ptr[640 * (2*i)   + (2*j)+64]   = tpixel;
+			ptr[640 * (2*i)   + (2*j+1)+64] = tpixel;
+			ptr[640 * (2*i+1) + (2*j)+64]   = tpixel;
+			ptr[640 * (2*i+1) + (2*j+1)+64] = tpixel;
 
 		}
 	}
@@ -52,9 +52,9 @@ void NESCore_Callback_OutputFrame(word *WorkFrame) {
 
 	for (i = 0; i < 480; i++) {
 	      for (j = 0; j < 640; j++) {
-				if (j < 64 || j > 574) {
-					ptr[(640 *i + j)] = 0x0000;
-				}
+		      if (j < 64 || j > 574) {
+			      ptr[(640 *i + j)] = 0x0000;
+		      }
 	      }
 	}
 
